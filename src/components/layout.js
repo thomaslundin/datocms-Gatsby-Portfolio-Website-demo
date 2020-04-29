@@ -18,14 +18,9 @@ const TemplateWrapper = ({ children }) => {
             globalSeo {
               siteName
             }
-            faviconMetaTags {
-              ...GatsbyDatoCmsFaviconMetaTags
-            }
           }
           datoCmsHome {
-            seoMetaTags {
-              ...GatsbyDatoCmsSeoMetaTags
-            }
+            
             introTextNode {
               childMarkdownRemark {
                 html
@@ -102,6 +97,7 @@ const TemplateWrapper = ({ children }) => {
                 </div>
               </div>
             </div>
+            ***
             {children}
           </div>
         </div>
