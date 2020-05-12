@@ -1,0 +1,166 @@
+.logotype {
+    width: 100px;
+    height:100px;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+
+}
+
+header {
+    position: relative;
+    background: #fff;
+    height: 100px;
+    z-index: 9999;
+
+    nav {
+        max-width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+
+        ul {
+            display: inline-block;
+            padding:0;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            li {
+                display: inline-block;
+                margin: 0 25px;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+        }
+        ul:first-child {
+            float: left;
+        }
+        ul:last-child {
+            float: right;
+        }
+    }
+}
+
+
+.mobile-header {
+    display: flex;
+    padding: 20px 0;
+    margin: 0 15px;
+    background: #fff;
+
+}
+  
+
+.mobile-header__menu {
+    position: relative;
+    z-index:9999;
+    button {
+        border: 0;
+        cursor: pointer;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.hamburger {
+    top:50%;
+    left:10%;
+    width: 50px;
+    height: 6px;
+    background: #333;
+
+    transition: 0.5s;
+
+    position: relative;
+    z-index:9999;
+}
+  
+.hamburger:before {
+    top: -16px;
+}
+
+.hamburger:after {
+    top: 16px;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    // background: url('https://cdn.rawgit.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/bars.svg');
+    // background-position: 50% 50%;
+    // background-repeat: no-repeat;
+    // background-size: contain;
+}
+
+ 
+.icon-one {
+    cursor: pointer;
+    position: fixed;
+    z-index: 9999;
+    top: 35px;
+    right: 40px;
+
+}
+  
+.hamburger:before,
+.hamburger:after {
+    content: '';
+    position:absolute;
+    width: 50px;
+    height: 6px;
+    left: 0;
+    background: #333;
+    transition:0.5s;
+}
+  
+.icon-one.is-active .hamburger {
+    background:rgba(0,0,0,0);
+}
+  
+.icon-one.is-active .hamburger:before {
+    top: 0;
+    transform:rotate(45deg);
+}
+
+.icon-one.is-active .hamburger:after {
+    top: 0;
+    transform:rotate(135deg);
+}
+
+  
+
+
+@media only all and (max-width: 1023px) {
+    nav {
+        background: pink;
+        position: fixed;
+        transform: translateY(-100vh);
+        height: 100vh;
+        width: 100vw;
+        z-index:1;
+        transition: all 0.3s ease-in-out;
+        ul {
+            display:block !important;
+            float:none !important;
+            height: auto !important;
+            text-align: center;
+            &:first-child {
+                margin-top: 200px;
+            }
+            li {
+                font-size: 56px;
+                display: block !important;
+                margin: 20px 0 !important;
+            }
+        }
+
+        &.menu-open{
+            transform: translateY(0);
+        }
+    }
+}

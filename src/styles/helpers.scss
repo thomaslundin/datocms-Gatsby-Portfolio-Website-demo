@@ -1,0 +1,25 @@
+@media only all and (max-width: 1023px) {
+
+    .hide-mobile{
+        display: none !important;
+    }
+    
+    }
+
+
+@media only all and (min-width: 1024px) {
+
+.hide-desktop, .hide-desktop-and-over, .show-mobile {
+    display: none !important;
+}
+
+}
+
+
+
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+}

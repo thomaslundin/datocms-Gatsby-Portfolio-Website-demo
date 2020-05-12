@@ -1,0 +1,18 @@
+body {
+  background: lightcoral;
+  font-family: "Source Sans Pro", sans-serif;
+}
+a {
+  color: #222;
+  text-decoration: none;
+}
+a.active {
+  font-weight: 400;
+  border-bottom: 2px solid #222;
+}
+p {
+  font-size: 21px;
+}
+img {
+  max-width: 100%;
+}

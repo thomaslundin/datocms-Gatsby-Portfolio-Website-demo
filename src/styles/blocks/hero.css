@@ -1,0 +1,20 @@
+.hero-wrapper {
+  min-height: 600px;
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+}
+.hero-wrapper div {
+  position: absolute;
+  bottom: 25%;
+  left: 50px;
+}
+.hero-wrapper h1 {
+  font-size: 60px;
+  font-weight: 400;
+  color: #fff;
+}
+.hero-wrapper p {
+  color: #fff;
+  margin-left: 5px;
+}
