@@ -82,6 +82,8 @@ class TemplateWrapper extends React.Component {
     );
   }
   render() {
+
+
     //const locale = this.props.location.pathname.startsWith("/it") ? "it" : "en";
     let path_splits = this.props.location.pathname.split("/");
     let locale = "no";
@@ -105,6 +107,7 @@ class TemplateWrapper extends React.Component {
           <div className="container__sidebar">
             <div className="sidebar">
               <h6 className="sidebar__title">
+                asdasdasdas
                 <Link to="/">{data.datoCmsSite.globalSeo.siteName}</Link>
               </h6>
 
@@ -119,29 +122,8 @@ class TemplateWrapper extends React.Component {
                 <FormattedMessage id={"menu"} />
               </h6>
               {this.renderNav(prefix)}
-             
-              <p className="sidebar__social">
-                {socials.map(s => {
-                  let profile = s.split("|");
-                  return (
-                    <a
-                      key={profile[0]}
-                      href={profile[1]}
-                      target="blank"
-                      className={`social social--${profile[0].toLowerCase()}`}
-                    />
-                  );
-                })}
-              </p>
-
-              <h6 className="sidebar__section">
-                <p className="sidebar__copyright">
-                  {data.datoCmsGlobalInfo.copyright}
-                  askndaskjnkjn 
-                </p>
-              </h6>
-
-              <div className="sidebar__section">{this.renderLang(locale)}</div>
+            
+              <div className="sidebar__section">asdasdasdasd{this.renderLang(locale)}</div>
             </div>
           </div>
           <div className="container__body">

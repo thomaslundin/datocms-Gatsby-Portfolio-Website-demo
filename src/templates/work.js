@@ -2,11 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Img from "gatsby-image";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Layout from "../components/layout"
 
 export default ({ data }) => (
+  <Layout>
   <article className="sheet">
     <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
     <div className="sheet__inner">
@@ -24,6 +23,7 @@ export default ({ data }) => (
       </div>
     </div>
   </article>
+  </Layout>
 );
 
 export const query = graphql`
