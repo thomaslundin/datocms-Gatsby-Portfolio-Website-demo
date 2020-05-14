@@ -1,0 +1,7 @@
+.btn {
+  display: inline-block;
+  background: burgundy;
+  width: auto;
+  height: 50px;
+  padding: 0 2.5em;
+}

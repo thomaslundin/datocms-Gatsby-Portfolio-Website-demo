@@ -3,13 +3,13 @@
   height: 100px;
   position: absolute;
   left: 50%;
-  top: 10px;
+  top: 15px;
   transform: translateX(-50%);
 }
 header {
   position: relative;
   background: #fff;
-  height: 100px;
+  height: 70px;
   z-index: 9999;
 }
 header nav {
@@ -30,6 +30,14 @@ header nav ul li {
   margin: 0 25px;
   text-transform: uppercase;
   font-weight: 300;
+}
+header nav ul li a {
+  border-bottom: 2px solid #fff;
+  transition: all 0.3s ease-in-out;
+}
+header nav ul li a:hover {
+  border-bottom: 2px solid #333;
+  transition: all 0.3s ease-in-out;
 }
 header nav ul:first-child {
   float: left;
@@ -57,18 +65,18 @@ header nav ul:last-child {
 .hamburger {
   top: 50%;
   left: 10%;
-  width: 50px;
-  height: 6px;
+  width: 40px;
+  height: 3px;
   background: #333;
   transition: 0.5s;
   position: relative;
   z-index: 9999;
 }
 .hamburger:before {
-  top: -16px;
+  top: -10px;
 }
 .hamburger:after {
-  top: 16px;
+  top: 10px;
 }
 button {
   border: 0;
@@ -81,15 +89,15 @@ button {
   cursor: pointer;
   position: fixed;
   z-index: 9999;
-  top: 35px;
+  top: 24px;
   right: 40px;
 }
 .hamburger:before,
 .hamburger:after {
   content: "";
   position: absolute;
-  width: 50px;
-  height: 6px;
+  width: 40px;
+  height: 3px;
   left: 0;
   background: #333;
   transition: 0.5s;

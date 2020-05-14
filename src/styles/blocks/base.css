@@ -1,5 +1,4 @@
 body {
-  background: lightcoral;
   font-family: "Source Sans Pro", sans-serif;
 }
 a {
@@ -12,7 +11,86 @@ a.active {
 }
 p {
   font-size: 21px;
+  font-weight: 300;
+  line-height: 1.8em;
 }
 img {
   max-width: 100%;
+}
+.projects-wrapper,
+.hagedesign-wrapper,
+.contact-wrapper {
+  text-align: center;
+  margin: 100px 0;
+}
+.projects-wrapper h1,
+.hagedesign-wrapper h1,
+.contact-wrapper h1 {
+  font-size: 56px;
+  color: #333;
+  margin-bottom: 20px;
+}
+.projects-wrapper p,
+.hagedesign-wrapper p,
+.contact-wrapper p {
+  max-width: 650px;
+  max-width: 65ch;
+  margin: 0 auto;
+}
+.hero-wrapper {
+  min-height: 600px;
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+}
+.hero-wrapper div {
+  position: absolute;
+  bottom: 25%;
+  left: 50px;
+}
+.hero-wrapper h1 {
+  font-size: 60px;
+  font-weight: 400;
+  color: #fff;
+}
+.hero-wrapper p {
+  color: #fff;
+  margin-left: 5px;
+}
+.about-wrapper {
+  min-height: 600px;
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+}
+.about-wrapper div {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+.about-wrapper h1 {
+  font-size: 56px;
+  font-weight: 400;
+  color: #fff;
+}
+.about-wrapper p {
+  color: #fff;
+  margin-left: 5px;
+  max-width: 650px;
+  max-width: 65ch;
+}
+@media only all and (max-width: 767px) {
+  .about-wrapper div,
+  .hero-wrapper div,
+  .hagedesign-wrapper div {
+    left: 20px !important;
+  }
+  .about-wrapper h1,
+  .hero-wrapper h1,
+  .hagedesign-wrapper h1 {
+    font-size: 40px !important;
+  }
+  .projects-wrapper h1 {
+    font-size: 40px !important;
+  }
 }

@@ -176,7 +176,7 @@ class Home extends React.Component {
         {this.renderNav(locale, curlang)}
         <HelmetDatoCms seo={home.seoMetaTags} />
 
-
+        {/* HERO SECTION */}
         <section style={{backgroundImage: "url(" + home.toppBild.url + ")"}} className="hero-wrapper">
           <div>
             <h1>{home.section1Rubrik}</h1>
@@ -185,17 +185,74 @@ class Home extends React.Component {
         </section>
 
 
-        <section>
+         {/* HAGEDESIGN SECTION */}
+         <section className="hagedesign-wrapper">
+            <h1>Hagedesign</h1>
+            <p>Hagedesign er en effektiv måte å få skreddersydd løsninger for ulike typer uterom. Ved å bruke en hagedesigner får du hjelp til å finne gode løsninger på struktur, funksjon og formgiving av hagen. </p>
+            <button className="btn">LÄS MER OM HAGEDESIGN</button>
+        </section>
+
+        {/* CONTACT SECTION */}
+        <section className="contact-wrapper">
+            <h1>Kontakta meg!</h1>
+            <p>Undrar du mer saker eller vill komma i kontakt med mig osv?</p>
+
+            <form method="post" netlify-honeypot="bot-field" data-netlify="true">
++           <input type="hidden" name="bot-field" />
+              <label>
+                Name
+                <input type="text" name="name" id="name" />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" id="email" />
+              </label>
+              <label>
+                Message
+                <textarea name="message" id="message" rows="5" />
+              </label>
+              <button type="submit" className="btn light">Skicka!</button>
+              <input type="reset" value="Clear" />
+            </form>
+
+
+            <button className="btn light">KONTAKTA MEG</button>
+        </section>
+
+        {/* OM MIG SECTION */}
+        <section style={{backgroundImage: "url(" + home.toppBild.url + ")"}} className="about-wrapper">
+          <div>
+            <h1>Om meg</h1>
+            <p>Mitt mål er å kombinere funksjonelle og estetiske hageplaner med en bevisst filosofi i forhold til holdbarhet og biologisk mangfold. Jeg er opptatt av å finne kreative løsninger som skaper gode opplevelser i uterommet. </p>
+            <button className="btn light">LÄS MER OM MEG</button>
+
+          </div>
+
+        </section>
+
+
+
+        {/* PROJECTS SECTION */}
+        <section className="projects-wrapper">
+          <h1>Prosjekter</h1>
+          <section className="projects-inner">
           {
                     projects.map(project => (
-<>
-                    <img src={project.coverImage.sizes.src} />
-                    <h3>{project.title}</h3>
-</>
-
+                  <article>
+                    <Link to={`${langpath}/${project.slug}`}>
+                    <div style={{backgroundImage: "url(" + project.coverImage.sizes.src + ")"}}>
+                      <span>
+                        <h3>{project.title}</h3>
+                        <h4>Subtitle</h4>
+                      </span>
+                    </div>
+                    </Link>
+                  </article>
                     ))
                 }
-
+               
+          </section>
+          <button className="btn">SE ALLA PROJEKT</button>
         </section>
        
 
@@ -274,6 +331,7 @@ export const query = graphql`
           }
         }
         title
+        slug
       }
     }
   }

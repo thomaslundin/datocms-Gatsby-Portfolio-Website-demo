@@ -3,7 +3,7 @@
     height:100px;
     position: absolute;
     left: 50%;
-    top: 10px;
+    top: 15px;
     transform: translateX(-50%);
 
 }
@@ -11,7 +11,7 @@
 header {
     position: relative;
     background: #fff;
-    height: 100px;
+    height: 70px;
     z-index: 9999;
 
     nav {
@@ -31,6 +31,15 @@ header {
                 margin: 0 25px;
                 text-transform: uppercase;
                 font-weight: 300;
+                a {
+                    border-bottom: 2px solid #fff;
+                    transition: all 0.3s ease-in-out;
+                }
+                a:hover {
+                    border-bottom: 2px solid #333;
+                    transition: all 0.3s ease-in-out;
+
+                }
             }
         }
         ul:first-child {
@@ -67,8 +76,8 @@ header {
 .hamburger {
     top:50%;
     left:10%;
-    width: 50px;
-    height: 6px;
+    width: 40px;
+    height: 3px;
     background: #333;
 
     transition: 0.5s;
@@ -78,11 +87,11 @@ header {
 }
   
 .hamburger:before {
-    top: -16px;
+    top: -10px;
 }
 
 .hamburger:after {
-    top: 16px;
+    top: 10px;
 }
 
 button {
@@ -91,10 +100,6 @@ button {
     display: inline-block;
     width: 20px;
     height: 20px;
-    // background: url('https://cdn.rawgit.com/encharm/Font-Awesome-SVG-PNG/master/black/svg/bars.svg');
-    // background-position: 50% 50%;
-    // background-repeat: no-repeat;
-    // background-size: contain;
 }
 
  
@@ -102,7 +107,7 @@ button {
     cursor: pointer;
     position: fixed;
     z-index: 9999;
-    top: 35px;
+    top: 24px;
     right: 40px;
 
 }
@@ -111,8 +116,8 @@ button {
 .hamburger:after {
     content: '';
     position:absolute;
-    width: 50px;
-    height: 6px;
+    width: 40px;
+    height: 3px;
     left: 0;
     background: #333;
     transition:0.5s;

@@ -1,6 +1,6 @@
 body {
-    background: lightcoral;
     font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 a {
@@ -15,8 +15,101 @@ a {
 
 p {
     font-size: 21px;
+    font-weight: 300;
+    line-height: 1.8em;
 }
 
 img {
     max-width: 100%;
+}
+
+.projects-wrapper, .hagedesign-wrapper, .contact-wrapper {
+    text-align: center;
+    margin: 100px 0;
+    h1 {
+        font-size: 56px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    p {
+        max-width: 650px;
+        max-width: 65ch;
+        margin: 0 auto;
+    }
+}
+
+.contact-wrapper {
+    background: $burgundy;
+    padding-top: 60px;
+    h1, p {
+        color: #fff;
+    }
+}
+
+// HERO WRAPPER
+.hero-wrapper {
+    min-height: 600px;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    div {
+        position: absolute;
+        bottom: 25%;
+        left: 50px;
+    }
+    h1 {
+        font-size: 60px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    p {
+        color: #fff;
+        margin-left: 5px;
+    }
+}
+
+
+
+
+// ABOUT WRAPPER
+.about-wrapper {
+    min-height: 600px;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    div {
+        position: absolute;
+        bottom: 0;
+        left: 50px;
+    }
+    h1 {
+        font-size: 56px;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    p {
+        color: #fff;
+        margin-left: 5px;
+        max-width: 650px;
+        max-width: 65ch;
+    }
+
+}
+
+
+@media only all and (max-width: 767px) { 
+    .about-wrapper, .hero-wrapper, .hagedesign-wrapper{
+        div {
+            left: 20px !important;
+        }
+        h1 {
+            font-size: 40px !important;
+        }
+    }
+
+    .projects-wrapper h1 {
+        font-size: 40px !important;
+    }
 }

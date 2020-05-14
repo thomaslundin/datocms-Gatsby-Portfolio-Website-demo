@@ -169,7 +169,7 @@ class About extends React.Component {
     
         {this.renderNav(locale, curlang)}
         {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
-    <h1>{about.title}</h1>
+      <h1>{about.title}</h1>
       </div>
       
       </IntlProvider>
@@ -182,7 +182,7 @@ export default About;
 
 export const query = graphql`
 query AboutQuery($locale: String!) {
- 
+
   about: datoCmsAboutPage(locale: { eq: $locale }) {
     photo {
       url

@@ -1,0 +1,29 @@
+.btn {
+    display:inline-block;
+    background: $burgundy;
+    width: auto;
+    height: 45px;
+    padding: 0 4em;
+    color: #fff;
+    margin: 40px 0;
+    border: 2px solid $burgundy ;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        color: $burgundy;
+        background: #fff;
+        border: 2px solid $burgundy;
+    }
+
+    &.light {
+        background: #fff;
+        color: #333;
+        border: 2px solid #fff;
+        &:hover {
+            color: #fff;
+            background:transparent;
+            border: 2px solid #fff;
+        }
+    }
+
+}
