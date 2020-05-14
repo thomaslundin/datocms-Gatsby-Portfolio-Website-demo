@@ -6,6 +6,13 @@ import { IntlProvider, FormattedMessage } from "react-intl";
 import svMessages from "../locales/sv.js";
 import noMessages from "../locales/no.js";
 import Layout from "../components/layout"
+import { navigate } from 'gatsby-link'
+
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
 
 
 // import "@formatjs/intl-pluralrules/dist/locale-data/sv.js"
@@ -16,7 +23,28 @@ const messages = {
   no: noMessages
 };
 
+// CONTACT HANDLER
 
+const [state, setState] = React.useState({})
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error))
+  }
 
 const locales = ["no", "sv"];
 
@@ -32,6 +60,8 @@ class Home extends React.Component {
     console.log("akjbsdjkabsjdb");
     
   };
+
+  
 
 
   
@@ -142,6 +172,7 @@ class Home extends React.Component {
   closeSidebar() {
     this.setState({ is_open: false });
   }
+  
 
 
   render() {
@@ -197,24 +228,46 @@ class Home extends React.Component {
             <h1>Kontakta meg!</h1>
             <p>Undrar du mer saker eller vill komma i kontakt med mig osv?</p>
 
-            <form method="post" netlify-honeypot="bot-field" data-netlify="true">
-            <input type="hidden" name="form-name" value="contact" />
-+           <input type="hidden" name="bot-field" />
-              <label>
-                Name
-                <input type="text" name="name" id="name" />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" id="email" />
-              </label>
-              <label>
-                Message
-                <textarea name="message" id="message" rows="5" />
-              </label>
-              <button type="submit" className="btn light">Skicka!</button>
-              <input type="reset" value="Clear" />
-            </form>
+            <form
+        name="contact"
+        method="post"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your name:
+            <br />
+            <input type="text" name="name" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your email:
+            <br />
+            <input type="email" name="email" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Message:
+            <br />
+            <textarea name="message" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form>
 
 
             <button className="btn light">KONTAKTA MEG</button>
