@@ -198,6 +198,7 @@ class Home extends React.Component {
             <p>Undrar du mer saker eller vill komma i kontakt med mig osv?</p>
 
             <form method="post" netlify-honeypot="bot-field" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
 +           <input type="hidden" name="bot-field" />
               <label>
                 Name
