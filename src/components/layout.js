@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import {scroller} from "./scroll-browser";
 
 import "../styles/index.scss";
 
@@ -31,14 +31,6 @@ const TemplateWrapper = ({ children }) => {
               }
             }
             copyright
-          }
-          allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
-            edges {
-              node {
-                profileType
-                url
-              }
-            }
           }
         }
       `}

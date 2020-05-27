@@ -93,11 +93,6 @@ class TemplateWrapper extends React.Component {
     }
     let prefix = locale === "no" ? "" : locale;
     let { children, data } = this.props;
-    let socials = data.allDatoCmsSocialProfile.edges.reduce((uniq, s) => {
-      let k = `${s.node.profileType}|${s.node.url}`;
-      if (uniq.indexOf(k) < 0) uniq.push(k);
-      return uniq;
-    }, []);
     let cn = this.state.is_open ? "container is-open" : "container";
     return (
 

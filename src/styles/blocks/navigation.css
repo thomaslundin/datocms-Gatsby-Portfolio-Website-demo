@@ -5,12 +5,23 @@
   left: 50%;
   top: 15px;
   transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
+}
+.scrolled .logotype {
+  height: 60px;
+  width: 60px;
+  top: 5px;
 }
 header {
-  position: relative;
+  position: fixed;
   background: #fff;
   height: 70px;
+  width: 100%;
   z-index: 9999;
+  transition: all 0.3s ease-in-out;
+}
+.scrolled header {
+  height: 50px;
 }
 header nav {
   max-width: 1200px;

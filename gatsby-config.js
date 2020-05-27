@@ -14,5 +14,12 @@ module.exports = {
         apiToken: process.env.DATO_API_TOKEN,
       },
     },
+    // {
+    //   resolve: "gatsby-plugin-anchor-links",
+    //   options: {
+    //     offset: -2000
+    //   },
+    // },
+    
   ],
 }

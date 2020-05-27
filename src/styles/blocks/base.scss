@@ -23,7 +23,7 @@ img {
     max-width: 100%;
 }
 
-.projects-wrapper, .hagedesign-wrapper, .contact-wrapper {
+.projects-wrapper, .hagedesign-wrapper, .contact-wrapper, .services-wrapper {
     text-align: center;
     margin: 100px 0;
     h1 {
@@ -112,4 +112,14 @@ img {
     .projects-wrapper h1 {
         font-size: 40px !important;
     }
+}
+
+
+// SUBPAGES
+.main-content {
+    padding-top: 100px;
+}
+
+.testdiv {
+    background: sandybrown;
 }

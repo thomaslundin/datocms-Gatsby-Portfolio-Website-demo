@@ -169,7 +169,31 @@ class About extends React.Component {
     
         {this.renderNav(locale, curlang)}
         {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
+      <section className="main-content">
       <h1>{about.title}</h1>
+      <h2>{about.subtitle}</h2>
+      <p>Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+
+The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but *the Little Blind Text* didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.**</p>
+<p>Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+
+The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but *the Little Blind Text* didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.**</p>
+<p>Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+
+The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but *the Little Blind Text* didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.**</p>
+<p>Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+
+The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but *the Little Blind Text* didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.**</p>
+<p>Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+
+The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but *the Little Blind Text* didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.**</p>
+
+
+      </section>
+      <section className="testdiv" id="down1">  <p>Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too. Replied exposed savings he no viewing as up. Soon body add him hill. No father living really people estate if. Mistake do produce beloved demesne if am pursuit.
+
+The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but *the Little Blind Text* didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.**</p></section>
+<section className="testdiv" id="down2">  <p>ved overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters eved overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland/</p> <p>letters eReceived overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cott¨wild Question Marks and devious Semikoli, but *the Little Blind Text* didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.**</p></section>
       </div>
       
       </IntlProvider>

@@ -6,51 +6,16 @@ import { IntlProvider, FormattedMessage } from "react-intl";
 import svMessages from "../locales/sv.js";
 import noMessages from "../locales/no.js";
 import Layout from "../components/layout"
-import { navigate } from 'gatsby-link'
-
-import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { Redirect } from "react-router";
-
-
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
-
-
-// import "@formatjs/intl-pluralrules/dist/locale-data/sv.js"
-// import "@formatjs/intl-pluralrules/polyfill"
 
 const messages = {
   sv: svMessages,
   no: noMessages
 };
 
-// CONTACT HANDLER
-
-
-//   const handleChange = (e) => {
-//     setState({ ...state, [e.target.name]: e.target.value })
-//   }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-      }),
-    })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch((error) => alert(error))
-  }
 
 const locales = ["no", "sv"];
 
-class Home extends React.Component {
+class About extends React.Component {
 
   // TOGGLE CLASS ON BUTTON
   state = {
@@ -59,29 +24,9 @@ class Home extends React.Component {
 
   toggleMenu = () => {
     this.setState(prevState => ({ isMenuVisible: !prevState.isMenuVisible }));
+    console.log("akjbsdjkabsjdb");
     
   };
-
-// SCROLL EVENT 
-  componentDidMount(){
-    window.addEventListener("scroll", this.toggleBodyClass);
-    this.toggleBodyClass();
-  }
-  
-  componentWillUnmount(){
-    window.removeEventListener("scroll", this.toggleBodyClass);
-  }
-  
-  toggleBodyClass = () => {    
-    if (window.scrollY > 100) {
-      document.body.classList.add("scrolled");
-    } else {
-      document.body.classList.remove("scrolled");
-    }
-  };
-  
-
-  
 
 
   
@@ -136,7 +81,7 @@ class Home extends React.Component {
         {/* Left navigation */}
         <ul className="mainNav_left">
           <li>
-            <Link to={`/`} onClick={() => this.toggleSidebar()} activeClassName="active" className="active">
+            <Link to={`/`} onClick={() => this.toggleSidebar()} activeClassName="active">
               <FormattedMessage id={curlang["menu.start"]} /> 
             </Link>
           </li>
@@ -160,22 +105,14 @@ class Home extends React.Component {
             </Link>
           </li>
           <li>
-            {/* <Link to={`/om-meg`} onClick={() => this.toggleSidebar()} activeClassName="active" >
+            <Link to={`${prefix}/`} onClick={() => this.toggleSidebar()} activeClassName="active" className="active">
               <FormattedMessage id={curlang["menu.about"]} /> 
-            </Link> */}
-            <AnchorLink to="/om-meg#down2" title="contact" activeClassName="active" stripHash>
-Kontakt
-            </AnchorLink>
-
-            
+            </Link>
           </li>
           <li>
             <Link to={`${prefix}/`} onClick={() => this.toggleSidebar()} activeClassName="active">
               <FormattedMessage id={curlang["menu.contact"]} /> 
             </Link>
-            <AnchorLink to="/#contact" title="contact" activeClassName="active" stripHash>
-Kontakt
-            </AnchorLink>
           </li>
 
         </ul>    
@@ -200,7 +137,6 @@ Kontakt
   closeSidebar() {
     this.setState({ is_open: false });
   }
-  
 
 
   render() {
@@ -217,12 +153,11 @@ Kontakt
     let langpath = locale === "no" ? "prosjekt/" : `${locale}/projekt`;
     let curlang = locale;
 
-    let { home, contact } = this.props.data;
+    let {service,  about, home, contact } = this.props.data;
 
     let { data } = this.props;
-  
+    
 
-    const projects = this.props.data.home.homeProjects;
 
     return (
 
@@ -233,192 +168,18 @@ Kontakt
       <div>
     
         {this.renderNav(locale, curlang)}
-        <HelmetDatoCms seo={home.seoMetaTags} />
+        {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
+      <section className="main-content">
+      <h1>{service.slug}</h1>
+      <div dangerouslySetInnerHTML={{ __html: service.mainContent }} />
+      <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
+      <div id="section1"><p>NUMMER 1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
+      <div id="section2"><p>NUMMER 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
+      viewBox<div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
+      <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
+      <div id="section3"><p>3333333 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p id="section4">4444444444Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
 
-        {/* HERO SECTION */}
-        <section style={{backgroundImage: "url(" + home.toppBild.url + ")"}} className="hero-wrapper">
-          <div>
-            <h1>{home.section1Rubrik}</h1>
-            <p>{home.section1Content}</p>
-          </div>
-        </section>
-
-
-         {/* HAGEDESIGN SECTION */}
-         <section className="hagedesign-wrapper">
-            <h1>Hagedesign</h1>
-            <p>Hagedesign er en effektiv måte å få skreddersydd løsninger for ulike typer uterom. Ved å bruke en hagedesigner får du hjelp til å finne gode løsninger på struktur, funksjon og formgiving av hagen. </p>
-            <button className="btn">LÄS MER OM HAGEDESIGN</button>
-        </section>
-
-        {/* CONTACT SECTION */}
-        <section className="contact-wrapper" id="contact">
-            <h1>Kontakta meg!</h1>
-            <p>Undrar du mer saker eller vill komma i kontakt med mig osv?</p>
-
-            <form
-        name="contact"
-        method="post"
-        action="/thanks/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don’t fill this out: <input name="bot-field" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your name:
-            <br />
-            <input type="text" name="name"  />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your email:
-            <br />
-            <input type="email" name="email"  />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message:
-            <br />
-            <textarea name="message" />
-          </label>
-        </p>
-        <p>
-          <button type="submit" className="btn light">Skicka</button>
-        </p>
-      </form>
-
-
-            {/* <button className="btn light">KONTAKTA MEG</button> */}
-        </section>
-
-        {/* OM MIG SECTION */}
-        <section style={{backgroundImage: "url(" + home.toppBild.url + ")"}} className="about-wrapper">
-          <div>
-            <h1>Om meg</h1>
-            <p>Mitt mål er å kombinere funksjonelle og estetiske hageplaner med en bevisst filosofi i forhold til holdbarhet og biologisk mangfold. Jeg er opptatt av å finne kreative løsninger som skaper gode opplevelser i uterommet. </p>
-            <button className="btn light">LÄS MER OM MEG</button>
-
-          </div>
-
-        </section>
-
-         {/* PROJECTS SECTION */}
-         <section className="services-wrapper">
-          <h1>Tjenester</h1>
-          <section className="services-inner">
-            <article>
-            <AnchorLink to="/tjenester#section1" title="tjenester" stripHash>
-              <div style={{background: 'cyan'}}>
-                <span>
-                  <h3>Tjänst 1</h3>
-                  <h4>Subtitle</h4>
-                </span>
-              </div>
-              </AnchorLink>
-            </article>
-
-            <article>
-            <AnchorLink to="/tjenester#section2" title="tjenester" stripHash>
-              <div style={{background: 'red'}}>
-                <span>
-                  <h3>Tjänst 2</h3>
-                  <h4>Subtitle</h4>
-                </span>
-              </div>
-              </AnchorLink>
-            </article>
-
-            <article>
-            <AnchorLink to="/tjenester#section3" title="tjenester" stripHash>
-              <div style={{background: 'rebeccapurple'}}>
-                <span>
-                  <h3>Tjänst 3</h3>
-                  <h4>Subtitle</h4>
-                </span>
-              </div>
-              </AnchorLink>
-            </article>
-
-            <article>
-            <AnchorLink to="/tjenester#section4" title="tjenester" stripHash>
-              <div style={{background: 'gold'}}>
-                <span>
-                  <h3>Tjänst 4</h3>
-                  <h4>Subtitle</h4>
-                </span>
-              </div>
-              </AnchorLink>
-            </article>
-               
-          </section>
-          <button className="btn">SE ALLA PROJEKT</button>
-        </section>
-
-
-
-        {/* PROJECTS SECTION */}
-        <section className="projects-wrapper">
-          <h1>Prosjekter</h1>
-          <section className="projects-inner">
-          {
-                    projects.map(project => (
-                  <article>
-                    <Link to={`${langpath}/${project.slug}`}>
-                    <div style={{backgroundImage: "url(" + project.coverImage.sizes.src + ")"}}>
-                      <span>
-                        <h3>{project.title}</h3>
-                        <h4>Subtitle</h4>
-                      </span>
-                    </div>
-                    </Link>
-                  </article>
-                    ))
-                }
-               
-          </section>
-          <button className="btn">SE ALLA PROJEKT</button>
-        </section>
-       
-
-
-            
-            {/* <div
-              dangerouslySetInnerHTML={{
-                __html: home.introTextNode.childMarkdownRemark.html
-              }}
-            />
-            <div> */}
-
-
-            {/* PROJEKT LOOP */}
-        {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
-          <div key={work.id} className="showcase__item">
-            <figure className="card">
-              <Link to={`${langpath}/${work.slug}`} className="card__image">
-                <Img sizes={work.coverImage.sizes} />
-              </Link>
-              <figcaption className="card__caption">
-                <h6 className="card__title">
-                  <Link to={`${langpath}/${work.slug}`}>{work.title}</Link>
-                </h6>
-                <div className="card__description">
-                  <p>{work.excerpt}</p>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-        ))}  */}
-
+      </section>
       </div>
       
       </IntlProvider>
@@ -427,46 +188,16 @@ Kontakt
   }
 }
 
-export default Home;
+export default About;
 
 export const query = graphql`
-  query HomeQuery($locale: String!) {
+query About2Query($locale: String!) {
 
-    allDatoCmsWork(
-        filter: { locale: { eq: $locale } }
-        sort: { fields: [position], order: ASC }
-      ) {
-        edges {
-          node {
-            id
-            title
-            slug
-            locale
-            excerpt
-            coverImage {
-              sizes(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-                ...GatsbyDatoCmsSizes
-              }
-            }
-          }
-        }
-      }
+  service: datoCmsService(locale: { eq: $locale }) {
+    slug
+    mainContent
 
-    home: datoCmsHome(locale: { eq: $locale }) {
-      section1Rubrik
-      section1Content
-      toppBild {
-        url
-      }
-      homeProjects {
-        coverImage {
-          sizes(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-            ...GatsbyDatoCmsSizes
-          }
-        }
-        title
-        slug
-      }
-    }
   }
+}
+
 `;
