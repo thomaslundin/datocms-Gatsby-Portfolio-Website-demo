@@ -15,7 +15,7 @@ const messages = {
 
 const locales = ["no", "sv"];
 
-class About extends React.Component {
+class Projects extends React.Component {
 
   // TOGGLE CLASS ON BUTTON
   state = {
@@ -148,7 +148,7 @@ class About extends React.Component {
     }
     let prefix = locale === "no" ? "" : locale;
 
-    let langpath = locale === "no" ? "prosjekt/" : `${locale}/projekt`;
+    let langpath = locale === "no" ? "prosjekter/" : `${locale}/projekt`;
     let curlang = locale;
 
     let {hagedesign, service,  about, home, contact } = this.props.data;
@@ -163,20 +163,35 @@ class About extends React.Component {
 
       <Layout>
       <IntlProvider locale={locale} messages={messages[locale]}>
-      <div className="sub">
+      <div>
     
         {this.renderNav(locale, curlang)}
         {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
-        <div style={{backgroundImage: "url(" + hagedesign.heroImage.url + ")"}} className="hero-wrapper">
-          <div>
-            <h1>{hagedesign.title}</h1>
-            <p>{hagedesign.subtitle}</p>
-          </div>
-        </div>
-      <section className="main-content">
+      <section className="main-content projects-page">
+    
+        <h1>{hagedesign.slug}</h1>
+        <p>{hagedesign.content}</p>
 
-      {/* <h1>{hagedesign.title}</h1> */}
-      <div dangerouslySetInnerHTML={{__html: hagedesign.mainContent}} />
+      <section className="projects-inner">
+
+               
+
+        {data.allDatoCmsWork.edges.map(({ node: work }) => (
+          <article>
+          <Link to={`${langpath}/${work.slug}`}>
+          <div style={{backgroundImage: "url(" + work.coverImage.sizes.src + ")"}}>
+            <span>
+              <h3>{work.title}</h3>
+              <h4>{work.excerpt}</h4>
+            </span>
+          </div>
+          </Link>
+        </article>
+        ))} 
+
+
+
+          </section>
       </section>
 
       </div>
@@ -187,18 +202,33 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default Projects;
 
 export const query = graphql`
-query About3Query($locale: String!) {
+query About4Query($locale: String!) {
 
-  hagedesign: datoCmsHagedesign(locale: { eq: $locale }) {
+  hagedesign: datoCmsProject(locale: { eq: $locale }) {
+    content
     slug
-    title
-    mainContent
-    subtitle
-    heroImage  {
-      url
+  }
+
+  allDatoCmsWork(
+    filter: { locale: { eq: $locale } }
+    sort: { fields: [position], order: ASC }
+  ) {
+    edges {
+      node {
+        id
+        title
+        slug
+        locale
+        excerpt
+        coverImage {
+          sizes(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
+            ...GatsbyDatoCmsSizes
+          }
+        }
+      }
     }
   }
 }

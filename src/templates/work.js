@@ -4,7 +4,11 @@ import { HelmetDatoCms } from "gatsby-source-datocms";
 import Img from "gatsby-image";
 import Layout from "../components/layout"
 
+
+
+
 export default ({ data }) => (
+  
   <Layout>
   <article className="sheet">
     <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
@@ -27,7 +31,7 @@ export default ({ data }) => (
 );
 
 export const query = graphql`
-  query WorkQuery($slug: String!, $locale: String!) {
+  query WorkOLDQuery($slug: String!, $locale: String!) {
     datoCmsWork(slug: { eq: $slug }, locale: { eq: $locale }) {
       seoMetaTags {
         ...GatsbyDatoCmsSeoMetaTags
@@ -35,6 +39,7 @@ export const query = graphql`
       title
       excerpt
       
+    
       descriptionNode {
         childMarkdownRemark {
           html

@@ -30,6 +30,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             locale
             slug
           }
+          project: datoCmsProject(locale: { eq: "${locale}" }) {
+            locale
+            slug
+          }
           hagedesign: datoCmsHagedesign(locale: { eq: "${locale}" }) {
             locale
             slug
@@ -46,7 +50,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       `).then(result => {
         console.log(result);
 
-        ["home", "about", "service", "hagedesign"].forEach(template => {
+        ["home", "about", "service", "hagedesign", "project"].forEach(template => {
           let page = result.data[template];
           const prefix = page.locale === "no" ? "" : `/${page.locale}`;
           let slug = template === "home" ? "" : page.slug;
@@ -59,11 +63,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         result.data.works.edges.forEach(item => {
           const prefix = locale === "no" ? "" : `/${locale}`;
-          let langpath = locale === "no" ? "prosjekt" : "projekt";
+          let langpath = locale === "no" ? "prosjekter" : "projekt";
           let p = `${prefix}/${langpath}/${item.node.slug}`;
           createPage({
             path: p,
-            component: path.resolve(`./src/templates/work.js`),
+            component: path.resolve(`./src/templates/work2.js`),
             context: {
               slug: item.node.slug,
               locale

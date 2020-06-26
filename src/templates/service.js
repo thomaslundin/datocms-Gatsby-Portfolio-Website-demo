@@ -47,10 +47,7 @@ class About extends React.Component {
 
       <header>
 
-
-             
-
-        <svg className="logotype"  viewBox="0 0 262 262" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="logotype"  viewBox="0 0 262 262" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="131" cy="131" r="128.5" fill="#51676A" stroke="white" stroke-width="5"/>
 <path d="M47.8971 78.9264L50.6531 74.709L55.9766 78.1879C55.6372 80.1733 54.97 81.9274 53.9749 83.4501C52.6155 85.5303 50.9229 86.7982 48.897 87.2538C46.8691 87.6994 44.9649 87.3405 43.1844 86.1769C41.3081 84.9507 40.1675 83.2857 39.7629 81.1819C39.3583 79.0781 39.7906 77.0551 41.06 75.1127C41.5223 74.4054 42.039 73.7849 42.6101 73.2513C43.1753 72.7138 43.979 72.0926 45.0213 71.3879L46.8557 72.5867C45.007 73.5173 43.6008 74.72 42.6371 76.1947C41.7399 77.5676 41.4514 79.0301 41.7715 80.5825C42.0917 82.1348 42.9321 83.3557 44.293 84.245C45.7198 85.1774 47.1933 85.4688 48.7136 85.1192C50.2339 84.7695 51.4779 83.8544 52.4455 82.3736C52.9157 81.6543 53.313 80.6863 53.6375 79.4696L53.6952 79.2635L51.0785 77.5535L49.4977 79.9724L47.8971 78.9264Z" fill="white"/>
 <path d="M62.2554 72.3245L51.7481 61.6099L54.4325 58.9775C55.5165 57.9144 56.6387 57.3405 57.7993 57.2556C58.9649 57.1657 59.9965 57.5784 60.894 58.4937C61.5058 59.1175 61.8788 59.8098 62.0132 60.5708C62.1475 61.3317 62.0336 62.1105 61.6713 62.9071C62.2345 62.7961 62.8703 62.7745 63.5786 62.8421C64.2869 62.9098 65.4115 63.136 66.9523 63.5208C67.9222 63.7632 68.6701 63.9275 69.196 64.0137L70.5156 64.2241L68.6902 66.0141L67.5304 65.7673C67.49 65.7568 67.4167 65.7434 67.3105 65.7272L66.5977 65.5987L65.3551 65.2827L64.0214 64.9506C63.2731 64.8218 62.6382 64.7573 62.1166 64.7573C61.6001 64.7523 61.1793 64.7988 60.8543 64.8969C60.5293 64.9849 60.1163 65.2746 59.6152 65.766L59.2163 66.1571L63.7893 70.8203L62.2554 72.3245ZM55.0208 60.9582L54.5607 61.4095L57.8776 64.7918L58.4605 64.2202C59.2377 63.4581 59.7042 62.8701 59.8602 62.4564C60.0213 62.0376 60.0507 61.6176 59.9485 61.1963C59.8463 60.7648 59.6273 60.3778 59.2914 60.0352C58.9604 59.6978 58.5726 59.4813 58.1279 59.3858C57.6781 59.2852 57.2345 59.3391 56.797 59.5475C56.3645 59.7509 55.7725 60.2211 55.0208 60.9582Z" fill="white"/>
@@ -81,52 +78,53 @@ class About extends React.Component {
         {/* Left navigation */}
         <ul className="mainNav_left">
           <li>
-            <Link to={`/`} onClick={() => this.toggleSidebar()} activeClassName="active">
-              <FormattedMessage id={curlang["menu.start"]} /> 
-            </Link>
+          <Link to={curlang["menu.link1"]} onClick={() => this.toggleSidebar()} activeClassName="active" >
+            {curlang["menu.text1"]}
+          </Link>
           </li>
           <li>
-            <Link to={`${prefix}/portfolio`} onClick={() => this.toggleSidebar()} activeClassName="active">
-              <FormattedMessage id={curlang["menu.gardendesign"]} />
-            </Link>
+          <Link to={curlang["menu.link2"]} onClick={() => this.toggleSidebar()} activeClassName="active" >
+            {curlang["menu.text2"]}
+          </Link>
           </li>
           <li>
-            <Link to={`${prefix}/about`} onClick={() => this.toggleSidebar()} activeClassName="active">
-              <FormattedMessage id={curlang["menu.services"]} />
-            </Link>
+          <Link to={curlang["menu.link3"]} onClick={() => this.toggleSidebar()} activeClassName="active" >
+            {curlang["menu.text3"]}
+          </Link>
           </li>
 
         </ul>
         {/* Right navigation */}
         <ul className="mainNav_right">
         <li>
-            <Link to={`/prosjekt`} onClick={() => this.toggleSidebar()} activeClassName="active">
-              <FormattedMessage id={curlang["menu.projects"]} />
-            </Link>
+        <Link to={curlang["menu.link4"]} onClick={() => this.toggleSidebar()} activeClassName="active" >
+            {curlang["menu.text4"]}
+          </Link>
           </li>
           <li>
-            <Link to={`${prefix}/`} onClick={() => this.toggleSidebar()} activeClassName="active" className="active">
-              <FormattedMessage id={curlang["menu.about"]} /> 
-            </Link>
+          <Link to={curlang["menu.link5"]} onClick={() => this.toggleSidebar()} activeClassName="active" >
+            {curlang["menu.text5"]}
+          </Link>
+
+            
           </li>
           <li>
-            <Link to={`${prefix}/`} onClick={() => this.toggleSidebar()} activeClassName="active">
-              <FormattedMessage id={curlang["menu.contact"]} /> 
-            </Link>
+          <Link to={curlang["menu.link6"]} onClick={() => this.toggleSidebar()} activeClassName="active" >
+            {curlang["menu.text6"]}
+          </Link>
           </li>
 
         </ul>    
       </nav>
-      
-
-
+  
         <div className="mobile-header show-mobile">
           <div className={`icon-one ${isMenuVisible ? "is-active" : ""}`}>
           <button className="hamburger" onClick={this.toggleMenu}></button>
         
           </div>
         </div>
-        </header>
+        
+      </header>
     );
   }
 
@@ -168,16 +166,34 @@ class About extends React.Component {
       <div>
     
         {this.renderNav(locale, curlang)}
+        
         {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
+        <div style={{backgroundImage: "url(" + service.photo.url + ")"}} className="hero-wrapper">
+          <div>
+          <h1>{service.title}</h1>
+          <p>{service.subtitle}</p>
+        </div>
+        </div>
       <section className="main-content">
-      <h1>{service.slug}</h1>
-      <div dangerouslySetInnerHTML={{ __html: service.mainContent }} />
-      <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
-      <div id="section1"><p>NUMMER 1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
-      <div id="section2"><p>NUMMER 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
-      viewBox<div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
-      <div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
-      <div id="section3"><p>3333333 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p><p id="section4">4444444444Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quis placerat risus. In lacinia sem sed est ultricies, tristique mattis turpis commodo. Aenean arcu leo, ornare sit amet euismod sit amet, viverra ac nisl. Sed semper in lectus id varius. Donec varius eros eu dui efficitur, ac sodales metus sollicitudin. Duis justo augue, sagittis id metus vitae, rhoncus ornare nulla. Maecenas a arcu et eros ullamcorper pulvinar in non diam. Morbi molestie orci nec consectetur ultricies.</p></div>
+      <div className="sub-navigation">
+        <ul>
+          <li>
+            <a href="#hagekonsultasjon">Hagekonsultasjon</a>
+          </li>
+          <li>
+            <a href="#planteplan">Planteplan</a>
+          </li>
+          <li>
+            <a href="#delplan">Delplan</a>
+          </li>
+          <li>
+            <a href="#hageplan">Hageplan</a>
+          </li>
+        </ul>
+      </div>
+      {/* <h1>{service.slug}</h1> */}
+      <div className="service-content" dangerouslySetInnerHTML={{ __html: service.mainContent }} />
+      
 
       </section>
       </div>
@@ -196,6 +212,11 @@ query About2Query($locale: String!) {
   service: datoCmsService(locale: { eq: $locale }) {
     slug
     mainContent
+    photo {
+      url
+    }
+    title
+    subtitle
 
   }
 }

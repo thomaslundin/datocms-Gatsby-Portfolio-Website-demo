@@ -3,13 +3,22 @@
     background-size: cover;
     background-position: top center;
     position: relative;
+    
     div {
         position: absolute;
         bottom: 25%;
-        left: 50px;
+        // left: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        .sub & {
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
     }
     h1 {
-        font-size: 60px;
+        font-size: 100px;
         font-weight: 400;
         color: #fff;
     }

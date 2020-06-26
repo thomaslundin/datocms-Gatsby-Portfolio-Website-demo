@@ -1,64 +1,19 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
-import { IntlProvider, FormattedMessage } from "react-intl";
-import svMessages from "../locales/sv.js";
-import noMessages from "../locales/no.js";
-import { withRouter, BrowserRouter } from 'react-router-dom';
+import React  from 'react';
 
 
-class Header extends React.Component {
-
-
+const SomePageComponent = ({ location }) => {
+    console.log(location);
     
-    constructor(props){
-      super(props);
-        this.state = {
-          path_splits : this.props.location.pathname.split("/"),
-          locale : "no"
-        }
-       let incipit = this.state.path_splits[1];
-    }
+    const { state = {} } = location
+    const { modal } = state
 
-    render(){
-        const messages = {
-            sv: svMessages,
-            no: noMessages
-          };
-        
-        const locales = ["no", "sv"];
+    console.log(state);
+    
+    // return modal ? (
+    //   <dialog className="modal">I'm a modal of Some Page Component!</dialog>
+    // ) : (
+    //   <div>Welcome to the Some Page Component!</div>
+    // )
+  }
 
-        let locale = "no";
-        let incipit = this.state.path_splits[1];
-        if (locales.indexOf(incipit) > -1) {
-            locale = incipit;
-        }
-        let prefix = locale === "no" ? "" : locale;
-
-        let langpath = locale === "no" ? "prosjekt/" : `${locale}/projekt`;
-        let curlang = locale;
-
-        let state = {
-            isMenuVisible:false
-        };
-
-        return(
-            <>
-            <h1>LOL{window.location.pathname}IPOP</h1>
-            
-            {this.renderNav()}
-            </>
-        )
-    }
-  
-    renderNav = () => {
-        console.log("this");
-        console.log(this.incipit);
-        // this.setState({
-            
-            
-        //     answers: this.state.answers.concat("hello")
-        // });
-    }
-}
-export default withRouter(Header);
+  export default SomePageComponent

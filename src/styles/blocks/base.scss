@@ -25,7 +25,7 @@ img {
 
 .projects-wrapper, .hagedesign-wrapper, .contact-wrapper, .services-wrapper {
     text-align: center;
-    margin: 100px 0;
+    margin: 60px 0;
     h1 {
         font-size: 56px;
         color: #333;
@@ -46,28 +46,45 @@ img {
     }
 }
 
-// HERO WRAPPER
-.hero-wrapper {
-    min-height: 600px;
-    background-size: cover;
-    background-position: top center;
-    position: relative;
-    div {
-        position: absolute;
-        bottom: 25%;
-        left: 50px;
-    }
-    h1 {
-        font-size: 60px;
-        font-weight: 400;
-        color: #fff;
-    }
-
-    p {
-        color: #fff;
-        margin-left: 5px;
+.service-content {
+    max-width: 650px;
+    margin:0 auto;
+    h2 {
+        font-size: 32px;
     }
 }
+
+hr {
+    max-width: 800px;
+    margin: 0 auto;
+    background: $green;
+    height:1px;
+    border: none;
+
+}
+
+// HERO WRAPPER
+// .hero-wrapper {
+//     min-height: 600px;
+//     background-size: cover;
+//     background-position: top center;
+//     position: relative;
+//     div {
+//         position: absolute;
+//         bottom: 25%;
+//         left: 50px;
+//     }
+//     h1 {
+//         font-size: 80px;
+//         font-weight: 400;
+//         color: #fff;
+//     }
+
+//     p {
+//         color: #fff;
+//         margin-left: 5px;
+//     }
+// }
 
 
 
@@ -118,8 +135,40 @@ img {
 // SUBPAGES
 .main-content {
     padding-top: 100px;
-}
+    max-width: 1024px;
+    margin: 0 auto;
 
-.testdiv {
-    background: sandybrown;
+    h1 {
+        max-width: 750px;
+        margin: 1.6em auto;
+        font-size: 56px;
+        text-transform: capitalize;
+    }
+
+    p{
+        max-width: 750px;
+        margin: 0 auto 1.6em auto;
+    }
+    blockquote {
+        quotes: "“" "”" "‘" "’";
+        margin: 0;
+        
+
+    }
+    blockquote p {
+        background: #f9f9f9;
+        padding: 1em;
+        font-size: 32px;
+        font-weight: 500;
+        font-family: 'alice';
+        font-style: italic;
+        &::before {
+            content: '\201C';
+            font-size: 46px;
+        }
+        &::after {
+            content: '\201D';
+            font-size: 46px;
+        }
+    }
 }
