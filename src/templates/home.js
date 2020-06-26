@@ -192,6 +192,41 @@ class Home extends React.Component {
   closeSidebar() {
     this.setState({ is_open: false });
   }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', function() {
+        var element = document.querySelector('#contact');
+        var homelink = document.querySelector('.homelink');
+        var activelink = document.querySelector('nav.container a.active');
+        var contactlink = document.querySelector('.contactlink');
+        var position = element.getBoundingClientRect();
+      
+        // checking whether fully visible
+        if(position.top >= 0 && position.bottom <= window.innerHeight) {
+          console.log('Element is fully visible in screen');
+        }
+      
+        // checking for partial visibility
+        if(position.top < window.innerHeight && position.bottom >= 0) {
+          console.log('Element is partially visible in screen');
+          activelink.classList.remove("active");
+          contactlink.classList.add("active");
+        }
+        else {
+          contactlink.classList.remove("active");
+          homelink.classList.add("active");
+        }
+      });
+    }
+  }
+  // make sure to remove the listener
+  // when the component is not mounted anymore
+  // componentWillUnmount() {
+  //   if (typeof window !== 'undefined') {
+  //     window.removeEventListener('scroll', this.handleScroll)
+  //   }
+  // }
   
 
 
@@ -213,8 +248,7 @@ class Home extends React.Component {
 
     let { data } = this.props;
 
-    // if(typeof window !== undefined){ 
-    //   window.addEventListener('scroll', function() {
+    //   document.body.addEventListener('scroll', function() {
     //     var element = document.querySelector('#contact');
     //     var homelink = document.querySelector('.homelink');
     //     var activelink = document.querySelector('nav.container a.active');
@@ -237,7 +271,9 @@ class Home extends React.Component {
     //       homelink.classList.add("active");
     //     }
     //   });
-    // }
+
+
+    
 
     const projects = this.props.data.home.homeProjects;
 
