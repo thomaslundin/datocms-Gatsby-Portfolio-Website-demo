@@ -167,6 +167,12 @@ class Projects extends React.Component {
     
         {this.renderNav(locale, curlang)}
         {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
+        <div style={{backgroundImage: "url(" + hagedesign.heroImage.url + ")"}} className="hero-wrapper">
+          <div>
+          <h1>{hagedesign.title}</h1>
+          {/* <p>{about.subtitle}</p> */}
+        </div>
+        </div>
       <section className="main-content projects-page">
     
         <h1>{hagedesign.slug}</h1>
@@ -210,6 +216,10 @@ query About4Query($locale: String!) {
   hagedesign: datoCmsProject(locale: { eq: $locale }) {
     content
     slug
+    title
+    heroImage  {
+      url
+    }
   }
 
   allDatoCmsWork(

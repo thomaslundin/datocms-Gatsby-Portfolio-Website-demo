@@ -171,11 +171,11 @@ class About extends React.Component {
         <div style={{backgroundImage: "url(" + service.photo.url + ")"}} className="hero-wrapper">
           <div>
           <h1>{service.title}</h1>
-          <p>{service.subtitle}</p>
+          {/* <p>{service.subtitle}</p> */}
         </div>
         </div>
       <section className="main-content">
-      <div className="sub-navigation">
+      {/* <div className="sub-navigation">
         <ul>
           <li>
             <a href="#hagekonsultasjon">Hagekonsultasjon</a>
@@ -190,7 +190,7 @@ class About extends React.Component {
             <a href="#hageplan">Hageplan</a>
           </li>
         </ul>
-      </div>
+      </div> */}
       {/* <h1>{service.slug}</h1> */}
       <div className="service-content" dangerouslySetInnerHTML={{ __html: service.mainContent }} />
       

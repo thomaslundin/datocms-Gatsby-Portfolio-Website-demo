@@ -17,11 +17,21 @@ const messages = {
   'menu.text5': 'Om mig',
   'menu.link6': '/sv/kontakt',
   'menu.text6': 'Kontakta mig',
+  'button.gardendesign': 'Kontakta meg',
+  'button.about': 'Kontakta meg',
+  'button.services': 'Kontakta meg',
+  'button.projects': 'Kontakta meg',
+  'contact.header': 'Kontakta meg!',
+  'contact.content': 'Vill du veta mer eller är nyfiken på något?',
+  'contact.name': 'Ditt namn',
+  'contact.email': 'Din E-post adress',
+  'contact.message': 'Meddelande',
+  'contact.send': 'SKICKA FORMULÄR!',
   'menu': 'Menu:',
   'langs': 'Lingue:',
   'lang_it': 'ITA',
   'lang_en': 'ENG'
-
+ 
 };
 
 export default messages;

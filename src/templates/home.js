@@ -63,30 +63,119 @@ class Home extends React.Component {
     
   };
 
-// SCROLL EVENT 
+
   componentDidMount(){
-    window.addEventListener("scroll", this.toggleBodyClass);
-    this.toggleBodyClass();
+
+    // SCROLL DIRECTION
+    // window.addEventListener("scroll", this.toggleBodyClass);
+    // this.toggleBodyClass();
+
+    // Initial state
+  var scrollPos = 0;
+  // adding scroll event
+  window.addEventListener('scroll', function(){
+  // detects new state and compares it with the new one
+
+  if ((document.body.getBoundingClientRect()).top > scrollPos) {
+    console.log('UPUPUPUP');  
+    document.body.classList.remove("scrolled");
+    console.log(scrollPos); 
+
+    // if (window.scrollY > 100) {
+    //   document.body.classList.add("scrolled");
+    // } else {
+    // }
+  }
+    
+	else {
+
+    if (document.body.classList.contains('scrolled')) {
+      console.log('contains class!!!');
+      
+    }
+    else {
+      document.body.classList.add("scrolled");
+    }
+
+    console.log(scrollPos); 
+    console.log('DDODODODWN');  
+  }
+
+	// saves the new position for iteration.
+	scrollPos = (document.body.getBoundingClientRect()).top;
+});
+
+
+
+
+
+
+
+ // ACCESSIBILITY HACK
+ function handleFirstTab(e) {
+  if (e.keyCode === 9) { // the "I am a keyboard user" key
+      document.body.classList.add('user-is-tabbing');
+      window.removeEventListener('keydown', handleFirstTab);
+  }
+}
+
+window.addEventListener('keydown', handleFirstTab);
+
+
+
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('scroll', function() {
+
+    var element = document.querySelector('#contact');
+    if (!element) {
+      element = document.querySelector('#footer');
+    }
+
+    var homelink = document.querySelector('.homelink');
+    var activelink = document.querySelector('nav.container a.active');
+    var contactlink = document.querySelector('.contactlink');
+    var position = element.getBoundingClientRect();
+  
+    // checking whether fully visible
+    if(position.top >= 0 && position.bottom <= window.innerHeight) {
+      console.log('Element is fully visible in screen');
+    }
+  
+    // checking for partial visibility
+    if(position.top < window.innerHeight && position.bottom >= 0) {
+      console.log('Element is partially visible in screen');
+      activelink.classList.remove("active");
+      contactlink.classList.add("active");
+    }
+    else {
+      contactlink.classList.remove("active");
+      homelink.classList.add("active");
+    }
+  });
+}
+
+
   }
   
   componentWillUnmount(){
     window.removeEventListener("scroll", this.toggleBodyClass);
   }
   
-  toggleBodyClass = () => {    
-    if (window.scrollY > 100) {
-      document.body.classList.add("scrolled");
-    } else {
-      document.body.classList.remove("scrolled");
-    }
-  };
+  // toggleBodyClass = () => {    
+  //   if (window.scrollY > 100) {
+  //     document.body.classList.add("scrolled");
+  //   } else {
+  //     document.body.classList.remove("scrolled");
+  //   }
+  // };
   
 
   
 
 
   
-  renderNav(prefix, curlang, menu1text) {
+  renderNav(prefix, curlang) {
     
     if (prefix === "sv") {
       curlang = messages.sv;
@@ -193,33 +282,6 @@ class Home extends React.Component {
     this.setState({ is_open: false });
   }
 
-  componentDidMount() {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', function() {
-        var element = document.querySelector('#contact');
-        var homelink = document.querySelector('.homelink');
-        var activelink = document.querySelector('nav.container a.active');
-        var contactlink = document.querySelector('.contactlink');
-        var position = element.getBoundingClientRect();
-      
-        // checking whether fully visible
-        if(position.top >= 0 && position.bottom <= window.innerHeight) {
-          console.log('Element is fully visible in screen');
-        }
-      
-        // checking for partial visibility
-        if(position.top < window.innerHeight && position.bottom >= 0) {
-          console.log('Element is partially visible in screen');
-          activelink.classList.remove("active");
-          contactlink.classList.add("active");
-        }
-        else {
-          contactlink.classList.remove("active");
-          homelink.classList.add("active");
-        }
-      });
-    }
-  }
   // make sure to remove the listener
   // when the component is not mounted anymore
   // componentWillUnmount() {
@@ -231,7 +293,6 @@ class Home extends React.Component {
 
 
   render() {
-
 
     let path_splits = this.props.location.pathname.split("/");
     let locale = "no";
@@ -248,34 +309,20 @@ class Home extends React.Component {
 
     let { data } = this.props;
 
-    //   document.body.addEventListener('scroll', function() {
-    //     var element = document.querySelector('#contact');
-    //     var homelink = document.querySelector('.homelink');
-    //     var activelink = document.querySelector('nav.container a.active');
-    //     var contactlink = document.querySelector('.contactlink');
-    //     var position = element.getBoundingClientRect();
-      
-    //     // checking whether fully visible
-    //     if(position.top >= 0 && position.bottom <= window.innerHeight) {
-    //       console.log('Element is fully visible in screen');
-    //     }
-      
-    //     // checking for partial visibility
-    //     if(position.top < window.innerHeight && position.bottom >= 0) {
-    //       console.log('Element is partially visible in screen');
-    //       activelink.classList.remove("active");
-    //       contactlink.classList.add("active");
-    //     }
-    //     else {
-    //       contactlink.classList.remove("active");
-    //       homelink.classList.add("active");
-    //     }
-    //   });
-
-
-    
-
     const projects = this.props.data.home.homeProjects;
+
+
+    var trans
+    if (prefix === "sv") {
+      trans = messages.sv;
+
+    }
+    else {
+      trans = messages.no;
+
+    }
+
+
 
     return (
 
@@ -302,9 +349,9 @@ class Home extends React.Component {
 
          {/* HAGEDESIGN SECTION */}
          <section className="hagedesign-wrapper">
-            <h1>Hagedesign</h1>
-            <p>Hagedesign er en effektiv måte å få skreddersydd løsninger for ulike typer uterom. Ved å bruke en hagedesigner får du hjelp til å finne gode løsninger på struktur, funksjon og formgiving av hagen. </p>
-            <button className="btn">LÄS MER OM HAGEDESIGN</button>
+            <h1>{home.section2Title}</h1>
+            <p>{home.section2Content}</p>
+            <button className="btn">{trans["button.gardendesign"]}</button>
         </section>
 
         
@@ -312,9 +359,9 @@ class Home extends React.Component {
         {/* OM MIG SECTION */}
         <section style={{backgroundImage: "url(" + home.toppBild.url + ")"}} className="about-wrapper">
           <div>
-            <h1>Om meg</h1>
-            <p>Mitt mål er å kombinere funksjonelle og estetiske hageplaner med en bevisst filosofi i forhold til holdbarhet og biologisk mangfold. Jeg er opptatt av å finne kreative løsninger som skaper gode opplevelser i uterommet. </p>
-            <a href="/om-meg"><button className="btn light">LÄS MER OM MEG</button></a>
+            <h1>{home.section3Title}</h1>
+            <p>{home.section3Content}</p>
+            <a href="/om-meg"><button className="btn light">{trans["button.about"]}</button></a>
 
           </div>
 
@@ -322,9 +369,9 @@ class Home extends React.Component {
 
         {/* SERVICES SECTION */}
         <section className="hagedesign-wrapper">
-            <h1>Mina tjenester</h1>
-            <p>En kortare text som kortfattat beskriver ditt erbjudande. Tänk lika muycket text som Hagedesign där uppe!</p>
-            <a href="/tjenester"><button className="btn">Mina tjenester</button></a>
+            <h1>{home.section4Title}</h1>
+            <p>{home.section4Content}</p>
+            <a href="/tjenester"><button className="btn">{trans["button.services"]}</button></a>
         </section>
 
         <hr/>
@@ -385,7 +432,7 @@ class Home extends React.Component {
 
         {/* PROJECTS SECTION */}
         <section className="projects-wrapper">
-          <h1>Prosjekter</h1>
+          <h1>{trans["menu.projects"]}</h1>
           <section className="projects-inner">
           {
                     projects.map(project => (
@@ -394,7 +441,7 @@ class Home extends React.Component {
                     <div style={{backgroundImage: "url(" + project.coverImage.sizes.src + ")"}}>
                       <span>
                         <h3>{project.title}</h3>
-                        <h4>Subtitle</h4>
+                        <h4>{project.excerpt}</h4>
                       </span>
                     </div>
                     </Link>
@@ -403,7 +450,7 @@ class Home extends React.Component {
                 }
                
           </section>
-          <button className="btn">SE ALLA PROJEKT</button>
+          <button className="btn">{trans["button.projects"]}</button>
         </section>
 
 
@@ -412,8 +459,8 @@ class Home extends React.Component {
 
         {/* CONTACT SECTION */}
         <section className="contact-wrapper" id="contact">
-            <h1>Kontakta meg!</h1>
-            <p>Undrar du mer saker eller vill komma i kontakt med mig osv?</p>
+            <h1>{trans["contact.header"]}</h1>
+            <p>{trans["contact.content"]}</p>
 
             <form
         name="contact"
@@ -432,64 +479,33 @@ class Home extends React.Component {
         </p>
         <p>
           <label>
-            Your name:
+          {trans["contact.name"]}
             <br />
             <input type="text" name="name"  />
           </label>
         </p>
         <p>
           <label>
-            Your email:
+          {trans["contact.email"]}
             <br />
             <input type="email" name="email"  />
           </label>
         </p>
         <p>
           <label>
-            Message:
+          {trans["contact.message"]}
             <br />
             <textarea name="message" />
           </label>
         </p>
         <p>
-          <button type="submit" className="btn light">Skicka</button>
+          <button type="submit" className="btn light">{trans["contact.send"]}</button>
         </p>
       </form>
 
 
             {/* <button className="btn light">KONTAKTA MEG</button> */}
         </section>
-       
-
-
-            
-            {/* <div
-              dangerouslySetInnerHTML={{
-                __html: home.introTextNode.childMarkdownRemark.html
-              }}
-            />
-            <div> */}
-
-
-            {/* PROJEKT LOOP */}
-        {/* {data.allDatoCmsWork.edges.map(({ node: work }) => (
-          <div key={work.id} className="showcase__item">
-            <figure className="card">
-              <Link to={`${langpath}/${work.slug}`} className="card__image">
-                <Img sizes={work.coverImage.sizes} />
-              </Link>
-              <figcaption className="card__caption">
-                <h6 className="card__title">
-                  <Link to={`${langpath}/${work.slug}`}>{work.title}</Link>
-                </h6>
-                <div className="card__description">
-                  <p>{work.excerpt}</p>
-                </div>
-              </figcaption>
-            </figure>
-          </div>
-        ))}  */}
-
       </div>
       
       </IntlProvider>
@@ -526,6 +542,13 @@ export const query = graphql`
     home: datoCmsHome(locale: { eq: $locale }) {
       section1Rubrik
       section1Content
+      section2Title
+      section2Content
+      section3Title
+      section3Content
+      section4Title
+      section4Content
+
       toppBild {
         url
       }
@@ -536,6 +559,7 @@ export const query = graphql`
           }
         }
         title
+        excerpt
         slug
       }
     }

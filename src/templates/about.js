@@ -170,7 +170,7 @@ class About extends React.Component {
         <div style={{backgroundImage: "url(" + about.photo.url + ")"}} className="hero-wrapper">
           <div>
           <h1>{about.title}</h1>
-          <p>{about.subtitle}</p>
+          {/* <p>{about.subtitle}</p> */}
         </div>
           
 
