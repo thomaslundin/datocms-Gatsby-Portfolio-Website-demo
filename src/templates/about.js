@@ -163,7 +163,7 @@ class About extends React.Component {
 
       <Layout>
       <IntlProvider locale={locale} messages={messages[locale]}>
-      <>
+      <div className="sub">
     
         {this.renderNav(locale, curlang)}
         {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
@@ -183,7 +183,7 @@ class About extends React.Component {
       />
 
       </section>
-      </>
+      </div>
       </IntlProvider>
       </Layout>
     );

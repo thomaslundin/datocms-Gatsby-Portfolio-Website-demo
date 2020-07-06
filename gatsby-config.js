@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-datocms`,

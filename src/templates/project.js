@@ -163,7 +163,7 @@ class Projects extends React.Component {
 
       <Layout>
       <IntlProvider locale={locale} messages={messages[locale]}>
-      <div>
+      <div className="sub">
     
         {this.renderNav(locale, curlang)}
         {/* <HelmetDatoCms seo={home.seoMetaTags} /> */}
@@ -175,7 +175,7 @@ class Projects extends React.Component {
         </div>
       <section className="main-content projects-page">
     
-        <h1>{hagedesign.slug}</h1>
+        {/* <h1>{hagedesign.slug}</h1> */}
         <p>{hagedesign.content}</p>
 
       <section className="projects-inner">

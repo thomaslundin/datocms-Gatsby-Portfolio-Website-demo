@@ -1,17 +1,18 @@
 .hero-wrapper {
-    min-height: 600px;
+    min-height: 500px;
     background-size: cover;
     background-position: top center;
     position: relative;
     
     div {
         position: absolute;
-        bottom: 25%;
+        bottom: 15%;
         // left: 50px;
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
         .sub & {
+            bottom: 30%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;

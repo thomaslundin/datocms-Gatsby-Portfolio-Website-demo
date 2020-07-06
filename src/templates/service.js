@@ -163,7 +163,7 @@ class About extends React.Component {
 
       <Layout>
       <IntlProvider locale={locale} messages={messages[locale]}>
-      <div>
+      <div className="sub">
     
         {this.renderNav(locale, curlang)}
         

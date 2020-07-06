@@ -231,25 +231,28 @@ class Work2 extends React.Component {
         <HelmetDatoCms seo={data.seoMetaTags} />
 
         {/* HERO SECTION */}
-        <section style={{backgroundImage: "url(" + data.datoCmsWork.coverImage.url + ")"}} className="hero-wrapper">
+        {/* <section style={{backgroundImage: "url(" + data.datoCmsWork.coverImage.url + ")"}} className="hero-wrapper">
           <div>
             <h1>{data.datoCmsWork.title}</h1>
             <p>{data.datoCmsWork.excerpt}</p>
           </div>
-        </section>
+        </section> */}
 
         <section className="main-content">
-        <div dangerouslySetInnerHTML={{__html: data.datoCmsWork.description}} />
+        <Link to="/prosjekter" className="project-backlink">&larr; Tillbake til alla prosjekter</Link>
 
-        <h3 className="gallery_header">Bilder</h3>
-        
-        <section className="project_gallery"> 
-        <SRLWrapper>
-          {data.datoCmsWork.gallery.map(({ fluid }) => (
-            <img key={fluid.src} src={fluid.src} />
-          ))}
-        </SRLWrapper>
-        </section>
+        <h1>{data.datoCmsWork.title}</h1>
+          <div dangerouslySetInnerHTML={{__html: data.datoCmsWork.description}} />
+
+          {/* <h3 className="gallery_header">Bilder</h3> */}
+          <hr className="gallery_header"/>
+          <section className="project_gallery"> 
+            <SRLWrapper>
+              {data.datoCmsWork.gallery.map(({ fluid }) => (
+               <img key={fluid.src} src={fluid.src} />
+              ))}
+            </SRLWrapper>
+          </section>
         </section>
        
 

@@ -351,17 +351,17 @@ if (typeof window !== 'undefined') {
          <section className="hagedesign-wrapper">
             <h1>{home.section2Title}</h1>
             <p>{home.section2Content}</p>
-            <button className="btn">{trans["button.gardendesign"]}</button>
+            <Link to="/hagedesign"><button className="btn">{trans["button.gardendesign"]}</button></Link>
         </section>
 
         
 
         {/* OM MIG SECTION */}
-        <section style={{backgroundImage: "url(" + home.toppBild.url + ")"}} className="about-wrapper">
+        <section style={{backgroundImage: "url(" + home.section3Image.url + ")"}} className="about-wrapper">
           <div>
             <h1>{home.section3Title}</h1>
             <p>{home.section3Content}</p>
-            <a href="/om-meg"><button className="btn light">{trans["button.about"]}</button></a>
+            <Link to="/om-meg"><button className="btn light">{trans["button.about"]}</button></Link>
 
           </div>
 
@@ -371,7 +371,7 @@ if (typeof window !== 'undefined') {
         <section className="hagedesign-wrapper">
             <h1>{home.section4Title}</h1>
             <p>{home.section4Content}</p>
-            <a href="/tjenester"><button className="btn">{trans["button.services"]}</button></a>
+            <Link href="/tjenester"><button className="btn">{trans["button.services"]}</button></Link>
         </section>
 
         <hr/>
@@ -548,6 +548,9 @@ export const query = graphql`
       section3Content
       section4Title
       section4Content
+      section3Image{
+        url
+      }
 
       toppBild {
         url
