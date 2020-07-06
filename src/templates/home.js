@@ -302,7 +302,7 @@ if (typeof window !== 'undefined') {
     }
     let prefix = locale === "no" ? "" : locale;
 
-    let langpath = locale === "no" ? "prosjekt/" : `${locale}/projekt`;
+    let langpath = locale === "no" ? "prosjekter/" : `${locale}/projekt`;
     let curlang = locale;
 
     let { home, menu, contact } = this.props.data;
@@ -450,7 +450,7 @@ if (typeof window !== 'undefined') {
                 }
                
           </section>
-          <button className="btn">{trans["button.projects"]}</button>
+          <Link to="/prosjekter"><button className="btn">{trans["button.projects"]}</button></Link>
         </section>
 
 
