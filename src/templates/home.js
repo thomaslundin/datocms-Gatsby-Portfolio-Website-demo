@@ -12,11 +12,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { Redirect } from "react-router";
 
 
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
+
 
 
 // import "@formatjs/intl-pluralrules/dist/locale-data/sv.js"
@@ -34,26 +30,40 @@ const messages = {
 //     setState({ ...state, [e.target.name]: e.target.value })
 //   }
 
-  const handleSubmit = (e) => {
-    
-    e.preventDefault()
-    const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-      }),
-    })
-      // .then(() => navigate(form.getAttribute('action')))
-      .then(() => document.body.classList.add("posted"))
-      .catch((error) => alert(error))
-  }
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
+
+const handleSubmit = (e) => {
+  
+  e.preventDefault()
+  const form = e.target
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encode({
+      'form-name': form.getAttribute('name'),
+    }),
+  })
+    // .then(() => navigate(form.getAttribute('action')))
+    .then(() => document.body.classList.add("posted"))
+    .catch((error) => alert(error))
+}
+
+function changeForm(){
+  console.log('KLICKAT');
+}
+
+
 
 const locales = ["no", "sv"];
 
 
 class Home extends React.Component {
+ 
+   
 
   // TOGGLE CLASS ON BUTTON
   state = {
@@ -325,10 +335,8 @@ if (typeof window !== 'undefined') {
     }
 
 
-
     return (
 
-      
 
 
       <Layout>
@@ -373,7 +381,7 @@ if (typeof window !== 'undefined') {
         <section className="hagedesign-wrapper">
             <h1>{home.section4Title}</h1>
             <p>{home.section4Content}</p>
-            <Link href="/tjenester"><button className="btn">{trans["button.services"]}</button></Link>
+            <Link to="/tjenester"><button className="btn">{trans["button.services"]}</button></Link>
         </section>
 
         <hr/>
@@ -469,8 +477,7 @@ if (typeof window !== 'undefined') {
             <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
   {/* You still need to add the hidden input with the form name to your JSX form */}
   <input type="hidden" name="form-name" value="contact" />
-
-        <p>
+  <p>
           <label>
           {trans["contact.name"]}
             <br />
@@ -492,10 +499,10 @@ if (typeof window !== 'undefined') {
             <textarea name="message" />
           </label>
         </p>
-</form>
-<p>
-          <button type="submit" className="btn light">{trans["contact.send"]}</button>
+        <p>
+          <button type="submit" className="btn light" name="buttonsend">{trans["contact.send"]}</button>
         </p>
+</form>
 
 
             {/* <form className="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
