@@ -45,8 +45,8 @@ const messages = {
         'form-name': form.getAttribute('name'),
       }),
     })
-      // .then(() => navigate(form.getAttribute('action')))
-      .then(() => document.body.classList.add("posted"))
+      .then(() => navigate(form.getAttribute('action')))
+      // .then(() => document.body.classList.add("posted"))
       .catch((error) => alert(error))
   }
 
