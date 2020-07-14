@@ -384,7 +384,7 @@ if (typeof window !== 'undefined') {
             <Link to="/tjenester"><button className="btn">{trans["button.services"]}</button></Link>
         </section>
 
-        <hr/>
+        {/* <hr/> */}
 
          {/* SERVICES SECTION BACKUP MED GRID*/}
          {/* <section className="services-wrapper">
