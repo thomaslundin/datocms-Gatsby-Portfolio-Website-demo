@@ -500,7 +500,7 @@ if (typeof window !== 'undefined') {
           </label>
         </p>
         <p>
-          <button type="submit" className="btn light" name="buttonsend" onClick={handleForm}>{trans["contact.send"]}</button>
+          <button type="submit" className="btn light" name="buttonsend">{trans["contact.send"]}</button>
         </p>
 </form>
 
