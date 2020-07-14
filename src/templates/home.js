@@ -34,21 +34,17 @@ const messages = {
 //     setState({ ...state, [e.target.name]: e.target.value })
 //   }
 
-  const handleSubmit = (e) => {
-    
-    e.preventDefault()
-    const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-      }),
-    })
-      // .then(() => navigate(form.getAttribute('action')))
-      .then(() => document.body.classList.add("posted"))
-      .catch((error) => alert(error))
-  }
+handleSubmit = e => {
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({ "form-name": "contact", ...this.state })
+  })
+    .then(() => alert("Success!"))
+    .catch(error => alert(error));
+
+  e.preventDefault();
+};
 
 const locales = ["no", "sv"];
 
@@ -466,7 +462,7 @@ if (typeof window !== 'undefined') {
 
             <div className="thankyou">{trans["contact.thankyou"]}</div>
 
-            <form className="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+            <form className="contactForm" name="contact" method="post" data-netlify="true" onSubmit={handleSubmit}>
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
