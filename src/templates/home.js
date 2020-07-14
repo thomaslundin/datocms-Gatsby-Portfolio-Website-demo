@@ -466,7 +466,7 @@ if (typeof window !== 'undefined') {
 
             <div className="thankyou">{trans["contact.thankyou"]}</div>
 
-            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
   {/* You still need to add the hidden input with the form name to your JSX form */}
   <input type="hidden" name="form-name" value="contact" />
 
