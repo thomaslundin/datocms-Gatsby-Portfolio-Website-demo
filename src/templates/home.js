@@ -52,8 +52,8 @@ const handleSubmit = (e) => {
     .catch((error) => alert(error))
 }
 
-function changeForm(){
-  console.log('KLICKAT');
+function handleForm(){
+  document.body.classList.add("posted")
 }
 
 
@@ -474,7 +474,7 @@ if (typeof window !== 'undefined') {
 
             <div className="thankyou">{trans["contact.thankyou"]}</div>
 
-            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form name="contact" action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
   {/* You still need to add the hidden input with the form name to your JSX form */}
   <input type="hidden" name="form-name" value="contact" />
   <p>
@@ -500,7 +500,7 @@ if (typeof window !== 'undefined') {
           </label>
         </p>
         <p>
-          <button type="submit" className="btn light" name="buttonsend">{trans["contact.send"]}</button>
+          <button type="submit" className="btn light" name="buttonsend" onClick={handleForm}>{trans["contact.send"]}</button>
         </p>
 </form>
 
