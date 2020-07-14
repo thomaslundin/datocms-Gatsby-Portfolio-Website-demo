@@ -45,8 +45,8 @@ const messages = {
         'form-name': form.getAttribute('name'),
       }),
     })
-      .then(() => navigate(form.getAttribute('action')))
-      // .then(() => document.body.classList.add("posted"))
+      // .then(() => navigate(form.getAttribute('action')))
+      .then(() => document.body.classList.add("posted"))
       .catch((error) => alert(error))
   }
 
@@ -466,7 +466,7 @@ if (typeof window !== 'undefined') {
 
             <div className="thankyou">{trans["contact.thankyou"]}</div>
 
-            <form className="contactForm" name="contact" method="post" action="/" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+            <form className="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
