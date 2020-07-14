@@ -466,8 +466,24 @@ if (typeof window !== 'undefined') {
 
             <div className="thankyou">{trans["contact.thankyou"]}</div>
 
-            <form className="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+            <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+  {/* You still need to add the hidden input with the form name to your JSX form */}
+  <input type="hidden" name="form-name" value="contact" />
+
+        <p>
+          <label>
+          {trans["contact.name"]}
+            <br />
+            <input type="text" name="name"  />
+          </label>
+        </p>
+        <p>
+          <button type="submit" className="btn light">{trans["contact.send"]}</button>
+        </p>
+</form>
+
+
+            {/* <form className="contactForm" name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
           <label>
@@ -495,10 +511,8 @@ if (typeof window !== 'undefined') {
             <textarea name="message" />
           </label>
         </p>
-        <p>
-          <button type="submit" className="btn light">{trans["contact.send"]}</button>
-        </p>
-      </form>
+
+      </form> */}
 
 
             {/* <button className="btn light">KONTAKTA MEG</button> */}
