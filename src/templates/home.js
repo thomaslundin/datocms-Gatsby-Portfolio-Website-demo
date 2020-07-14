@@ -433,7 +433,7 @@ if (typeof window !== 'undefined') {
 
 
         {/* PROJECTS SECTION */}
-        <section className="projects-wrapper">
+        {/* <section className="projects-wrapper">
           <h1>{trans["menu.projects"]}</h1>
           <section className="projects-inner">
           {
@@ -453,7 +453,7 @@ if (typeof window !== 'undefined') {
                
           </section>
           <Link to="/prosjekter"><button className="btn">{trans["button.projects"]}</button></Link>
-        </section>
+        </section> */}
 
 
 
