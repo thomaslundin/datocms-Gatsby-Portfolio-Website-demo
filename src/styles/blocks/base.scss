@@ -187,3 +187,22 @@ hr {
         }
     }
 }
+
+.contact-wrapper .thankyou {
+    display: none;
+}
+
+
+.posted {
+    
+    .contact-wrapper p, .contactForm {
+        display: none;
+    }
+    .thankyou{
+        display: block;
+        padding: 1.5em 0 4em 0;
+        color: #fff;
+    }
+}
+
+

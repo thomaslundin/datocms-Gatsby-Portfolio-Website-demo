@@ -27,6 +27,7 @@ const messages = {
   'contact.email': 'Din E-post adress',
   'contact.message': 'Meddelande',
   'contact.send': 'SKICKA FORMULÄR!',
+  'contact.thankyou': 'Formulär skickat! Jag återkommer så snart jag kan.',
   'menu': 'Menu:',
   'langs': 'Languages:',
   'lang_it': 'ITA',

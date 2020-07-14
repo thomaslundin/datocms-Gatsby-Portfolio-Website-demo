@@ -35,6 +35,7 @@ const messages = {
 //   }
 
   const handleSubmit = (e) => {
+    
     e.preventDefault()
     const form = e.target
     fetch('/', {
@@ -44,7 +45,8 @@ const messages = {
         'form-name': form.getAttribute('name'),
       }),
     })
-      .then(() => navigate(form.getAttribute('action')))
+      // .then(() => navigate(form.getAttribute('action')))
+      .then(() => document.body.classList.add("posted"))
       .catch((error) => alert(error))
   }
 
@@ -462,14 +464,9 @@ if (typeof window !== 'undefined') {
             <h1>{trans["contact.header"]}</h1>
             <p>{trans["contact.content"]}</p>
 
-            <form
-        name="contact"
-        method="post"
-        action="/thanks/"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
+            <div className="thankyou">{trans["contact.thankyou"]}</div>
+
+            <form className="contactForm" name="contact" method="post" action="/" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
