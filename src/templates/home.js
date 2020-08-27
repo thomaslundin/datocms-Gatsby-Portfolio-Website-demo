@@ -83,39 +83,39 @@ class Home extends React.Component {
     // this.toggleBodyClass();
 
     // Initial state
-  var scrollPos = 0;
+  // var scrollPos = 0;
   // adding scroll event
-  window.addEventListener('scroll', function(){
-  // detects new state and compares it with the new one
+//   window.addEventListener('scroll', function(){
+//   // detects new state and compares it with the new one
 
-  if ((document.body.getBoundingClientRect()).top > scrollPos) {
-    console.log('UPUPUPUP');  
-    document.body.classList.remove("scrolled");
-    console.log(scrollPos); 
+//   // if ((document.body.getBoundingClientRect()).top > scrollPos) {
+//   //   console.log('UPUPUPUP');  
+//   //   document.body.classList.remove("scrolled");
+//   //   console.log(scrollPos); 
 
-    // if (window.scrollY > 100) {
-    //   document.body.classList.add("scrolled");
-    // } else {
-    // }
-  }
+//   //   // if (window.scrollY > 100) {
+//   //   //   document.body.classList.add("scrolled");
+//   //   // } else {
+//   //   // }
+//   // }
     
-	else {
+// 	// else {
 
-    if (document.body.classList.contains('scrolled')) {
-      console.log('contains class!!!');
+//   //   if (document.body.classList.contains('scrolled')) {
+//   //     console.log('contains class!!!');
       
-    }
-    else {
-      document.body.classList.add("scrolled");
-    }
+//   //   }
+//   //   else {
+//   //     document.body.classList.add("scrolled");
+//   //   }
 
-    console.log(scrollPos); 
-    console.log('DDODODODWN');  
-  }
+//   //   console.log(scrollPos); 
+//   //   console.log('DDODODODWN');  
+//   // }
 
-	// saves the new position for iteration.
-	scrollPos = (document.body.getBoundingClientRect()).top;
-});
+// 	// saves the new position for iteration.
+// 	scrollPos = (document.body.getBoundingClientRect()).top;
+// });
 
 
 
