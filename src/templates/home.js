@@ -364,7 +364,14 @@ if (typeof window !== 'undefined') {
             <Link to="/hagedesign"><button className="btn">{trans["button.gardendesign"]}</button></Link>
         </section>
 
-        
+        <hr/>
+
+          {/* SERVICES SECTION */}
+          <section className="hagedesign-wrapper">
+            <h1>{home.section4Title}</h1>
+            <p>{home.section4Content}</p>
+            <Link to="/tjenester"><button className="btn">{trans["button.services"]}</button></Link>
+        </section>
 
         {/* OM MIG SECTION */}
         <section style={{backgroundImage: "url(" + home.section3Image.url + ")"}} className="about-wrapper">
@@ -377,12 +384,7 @@ if (typeof window !== 'undefined') {
 
         </section>
 
-        {/* SERVICES SECTION */}
-        <section className="hagedesign-wrapper">
-            <h1>{home.section4Title}</h1>
-            <p>{home.section4Content}</p>
-            <Link to="/tjenester"><button className="btn">{trans["button.services"]}</button></Link>
-        </section>
+      
 
         {/* <hr/> */}
 
@@ -470,7 +472,7 @@ if (typeof window !== 'undefined') {
         {/* CONTACT SECTION */}
         <section className="contact-wrapper" id="contact">
             <h1>{trans["contact.header"]}</h1>
-            <p>{trans["contact.content"]}</p>
+            {/* <p>{trans["contact.content"]}</p> */}
 
             <div className="thankyou">{trans["contact.thankyou"]}</div>
 

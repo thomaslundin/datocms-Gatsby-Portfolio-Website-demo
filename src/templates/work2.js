@@ -239,7 +239,7 @@ class Work2 extends React.Component {
         </section> */}
 
         <section className="main-content">
-        <Link to="/prosjekter" className="project-backlink">&larr; Tillbake til alla prosjekter</Link>
+        <Link to="/prosjekter" className="project-backlink">&larr; Tilbake til prosjekt</Link>
 
         <h1>{data.datoCmsWork.title}</h1>
           <div dangerouslySetInnerHTML={{__html: data.datoCmsWork.description}} />
