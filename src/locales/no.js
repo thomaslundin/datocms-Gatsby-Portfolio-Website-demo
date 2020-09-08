@@ -16,7 +16,7 @@ const messages = {
   'menu.link5': '/om-meg',
   'menu.text5': 'Om meg',
   'menu.link6': '/#contact',
-  'menu.text6': 'Kontakta meg',
+  'menu.text6': 'Kontakt meg',
   'button.gardendesign': 'LES MERE OM HAGEDESIGN',
   'button.about': 'LES MERE OM MEG',
   'button.services': 'MINE TJENESTER',
