@@ -132,10 +132,39 @@ hr {
 
 
 @media only all and (max-width: 767px) { 
+    .projects-wrapper, .hagedesign-wrapper, .contact-wrapper, .services-wrapper {
+        p {
+            padding: 0 15px;
+        }
+    }  
+    .about-wrapper {
+        div {
+            left: 0;
+            padding: 0 15px;
+        }
+    }
+    .hero-wrapper {
+        div {
+            bottom: 35% !important;
+            width: 90%;
+        }
+       
+    }
+    .main-content {
+        padding: 0 15px;
+        // padding-top: 36px !important;
+        blockquote {
+            p {
+                font-size: 22px !important;
+            }
+        }    
+    }
+
     .about-wrapper, .hero-wrapper, .hagedesign-wrapper{
         // div {
         //     // left: 20px !important;
         // }
+        padding: 0 15px;
         h1 {
             font-size: 40px !important;
         }
